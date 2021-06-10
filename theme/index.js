@@ -15,6 +15,6 @@ const typography = {
   },
 };
 
-const theme = { typography };
+const theme = { typography, colors };
 
 export default theme;

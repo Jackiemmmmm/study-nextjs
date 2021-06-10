@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/styles';
 import Link from 'next/link';
 import React from 'react';
+import { BasicBed } from '~svg-components';
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -22,6 +23,7 @@ function FirstPost() {
         <Link href="/">Back to home</Link>
       </h2>
       <h4 className={classes.h4}>Test</h4>
+      <BasicBed />
     </>
   );
 }
