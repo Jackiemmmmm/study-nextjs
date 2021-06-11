@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~components/*": ["components/*"],
+      "~static/*": ["static/*"],
+      "~theme": ["theme/index"],
+      "~i18n": ["i18n"],
+      "~svg-components": ["public/static/svg-components"],
+      "~images/*": ["public/images/*"],
+      "~utils/*": ["utils/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}
