@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "~components/*": ["components/*"],
+      "~hooks/*": ["hooks/*"],
       "~static/*": ["static/*"],
       "~theme": ["theme/index"],
       "~i18n": ["i18n"],

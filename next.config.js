@@ -7,6 +7,7 @@ const alias = {
   '~svg-components': path.join(__dirname, 'public/static/svg-components'),
   '~images': path.join(__dirname, 'public/images'),
   '~components': path.join(__dirname, 'components'),
+  '~hooks': path.join(__dirname, 'hooks'),
   '~i18n': path.join(__dirname, 'i18n'),
   '~utils': path.join(__dirname, 'utils'),
   '~graphql': path.join(__dirname, 'graphql'),
@@ -33,20 +34,11 @@ const publicFilePathPrefix = () => {
 
 module.exports = withSourceMaps({
   publicRuntimeConfig: {
-    // NODE_ENV: process.env.NODE_ENV,
-    // ENV: process.env.ENV,
-    // GA: process.env.GA || 'UA-167846316-4',
-    // TOKEN_NAME: process.env.TOKEN_NAME || 'sp-authorization-stage',
-    // FILE_SVC_URL: process.env.FILE_SVC_URL || 'https://files.project-g66.com/sp/',
-    // IMAGE_SVC_URL: process.env.IMAGE_SVC_URL || 'https://image.project-g66.com',
-    // ASSETS_CND_HOST: process.env.ASSETS_CND_HOST || 'https://cdn.project-g66.com',
+    AUTHORIZATION: process.env.REACT_APP_GQL_REQUEST_MARK,
+    DOMAIN: process.env.REACT_APP_DOMAIN,
+    ENDPOINT: process.env.REACT_APP_GQL_ENDPOINT,
     PUBLIC_FILE_PATH_PREFIX: publicFilePathPrefix(),
-    // GRAPHQL_ENDPOINT:
-    //   process.env.GRAPHQL_ENDPOINT || 'https://gateway.project-g66.com/graphql?source=sp',
-    // process.env.GRAPHQL_ENDPOINT || 'https://gateway-uat4.project-g66.com/graphql?source=sp',
-    // TOP_LANDLORD_ID: process.env.TOP_LANDLORD_ID || 'eyJ0eXBlIjoiTGFuZGxvcmQiLCJpZCI6MX0=',
   },
-  //eyJ0eXBlIjoiTGFuZGxvcmQiLCJpZCI6NX0= eyJ0eXBlIjoiTGFuZGxvcmQiLCJpZCI6MX0=
   // assetPrefix,
   webpack: (config, { defaultLoaders }) => {
     // Note: we provide webpack above so you should not `require` it
