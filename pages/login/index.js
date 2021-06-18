@@ -1,9 +1,9 @@
 // import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/react-hooks';
 import React, { useState } from 'react';
+import { LOGIN } from '~gql/login';
 import { setCookie } from '~utils/cookie-operation';
 import { Authorization } from '~utils/env-config';
-import { LOGIN } from './gql';
 
 function Login() {
   const [email, setEmail] = useState('');

@@ -5,8 +5,8 @@
       "~components/*": ["components/*"],
       "~hooks/*": ["hooks/*"],
       "~static/*": ["static/*"],
+      "~~gql/*": ["~gql/*"],
       "~theme": ["theme/index"],
-      "~i18n": ["i18n"],
       "~svg-components": ["public/static/svg-components"],
       "~images/*": ["public/images/*"],
       "~utils/*": ["utils/*"]

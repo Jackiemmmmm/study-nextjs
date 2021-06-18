@@ -1,5 +1,6 @@
 const path = require('path');
 const withSourceMaps = require('@zeit/next-source-maps');
+const { i18n } = require('./next-i18next.config');
 // const SentryCliPlugin = require('@sentry/webpack-plugin');
 
 const alias = {
@@ -8,7 +9,7 @@ const alias = {
   '~images': path.join(__dirname, 'public/images'),
   '~components': path.join(__dirname, 'components'),
   '~hooks': path.join(__dirname, 'hooks'),
-  '~i18n': path.join(__dirname, 'i18n'),
+  '~gql': path.join(__dirname, 'gql'),
   '~utils': path.join(__dirname, 'utils'),
   '~graphql': path.join(__dirname, 'graphql'),
 };
@@ -69,4 +70,5 @@ module.exports = withSourceMaps({
   },
   transpileModules: ['next-with-apollo'],
   distDir: 'build',
+  i18n,
 });

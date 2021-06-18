@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import { ThemeProvider } from '@material-ui/styles';
 import MobileDetect from 'mobile-detect';
+import { appWithTranslation } from 'next-i18next';
 import React from 'react';
 import { Authorization } from '~utils/env-config';
 import withApollo from '~utils/with-apollo';
@@ -39,8 +40,8 @@ App.getInitialProps = async ({ Component, ctx }) => {
   }
 
   let userAgent = ctx.req?.headers['user-agent'];
-  if (!userAgent) {
-    userAgent = window.navigator.userAgent;
+  if (process.browser) {
+    userAgent = window?.navigator?.userAgent;
   }
   const userDevice = new MobileDetect(userAgent);
 
@@ -52,4 +53,4 @@ App.getInitialProps = async ({ Component, ctx }) => {
   return { token, pageProps, isMobile: Boolean(userDevice.mobile()) };
 };
 
-export default withApollo(App);
+export default withApollo(appWithTranslation(App));
