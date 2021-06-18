@@ -69,6 +69,5 @@ module.exports = withSourceMaps({
     return config;
   },
   transpileModules: ['next-with-apollo'],
-  distDir: 'build',
   i18n,
 });
