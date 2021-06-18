@@ -3,21 +3,25 @@ import { ThemeProvider } from '@material-ui/styles';
 import MobileDetect from 'mobile-detect';
 import { appWithTranslation } from 'next-i18next';
 import React from 'react';
+import Layout from '~components/layout';
 import { Authorization } from '~utils/env-config';
 import withApollo from '~utils/with-apollo';
 import theme from '../theme';
 
 function App(props) {
-  const { Component, pageProps, token, isMobile } = props;
+  const { Component, pageProps, token, isMobile, renderingIsBrowser } = props;
   React.useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
+  const appProps = { ...pageProps, isMobile, renderingIsBrowser };
   return (
     <ThemeProvider theme={theme}>
-      <Component {...pageProps} token={token} isMobile={isMobile} />
+      <Layout {...appProps}>
+        <Component {...appProps} token={token} />
+      </Layout>
     </ThemeProvider>
   );
 }
@@ -50,7 +54,12 @@ App.getInitialProps = async ({ Component, ctx }) => {
     pageProps = await Component.getInitialProps(ctx);
   }
 
-  return { token, pageProps, isMobile: Boolean(userDevice.mobile()) };
+  return {
+    token,
+    pageProps,
+    isMobile: Boolean(userDevice.mobile()),
+    renderingIsBrowser: Boolean(process.browser),
+  };
 };
 
 export default withApollo(appWithTranslation(App));
