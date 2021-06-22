@@ -1,5 +1,8 @@
 import { makeStyles } from '@material-ui/styles';
-import Image from 'next/image';
+import Tippy from '@tippyjs/react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
@@ -8,31 +11,74 @@ const useStyles = makeStyles((theme) => ({
     height: 100,
     borderTop: '1px solid #eaeaea',
     ...theme.flex.center,
-    '& a': {
+    '& button': {
       ...theme.flex.center,
-      flexGrow: 1,
     },
   },
   logo: {
     height: '1em',
     marginLeft: '0.5rem',
   },
+  tippyRoot: {
+    '&.tippy-box': {
+      backgroundColor: theme.colors.white,
+      borderRadius: theme.borderRadius.small,
+      position: 'relative',
+      boxShadow: theme.shadow.componentDark,
+
+      '&& > .tippy-arrow': {
+        color: theme.colors.white,
+      },
+
+      '& > .tippy-content': {
+        padding: 0,
+      },
+    },
+  },
+  tippyItem: {
+    margin: 0,
+    padding: 10,
+    cursor: 'pointer',
+  },
 }));
 
 function Footer() {
   const classes = useStyles();
+  const router = useRouter();
+  const { t } = useTranslation('common');
   return (
     <footer className={classes.footer}>
-      <a
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank"
-        rel="noopener noreferrer"
+      <Tippy
+        offset={[0, 4]}
+        arrow={false}
+        className={classes.tippyRoot}
+        content={router.locales.map((item) => (
+          <Link href={router.route} key={item} locale={item}>
+            <p
+              className={classes.tippyItem}
+              style={{ color: item === router.locale ? 'blue' : 'black' }}
+              key={item}
+            >
+              {t(`translation.${item}`)}
+            </p>
+          </Link>
+        ))}
+        interactive
+        trigger="click"
+        popperOptions={{
+          modifiers: [
+            {
+              name: 'preventOverflow',
+              options: {
+                altAxis: true,
+                padding: 8,
+              },
+            },
+          ],
+        }}
       >
-        Powered by{' '}
-        <span className={classes.logo}>
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </span>
-      </a>
+        <button>Locale: {router.locale}</button>
+      </Tippy>
     </footer>
   );
 }

@@ -1,1 +1,6 @@
-{}
+{
+  "translation.en": "English",
+  "translation.de": "German",
+  "translation.zh": "Chinese",
+  "read_some_feature": "Read Some Feature"
+}
