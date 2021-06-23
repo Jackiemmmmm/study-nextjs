@@ -6,7 +6,9 @@
     "convert-svg": "svgr -d public/static/svg-components public/static/svgs && eslint public/static/svg-components --fix",
     "dev": "next dev -p 3005",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "get-csv": "node export-translations.js getCsv",
+    "get-json": "node export-translations.js getJson"
   },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
@@ -32,6 +34,7 @@
     "@typescript-eslint/eslint-plugin": "^4.0.0",
     "@typescript-eslint/parser": "^4.0.0",
     "babel-eslint": "^10.0.0",
+    "csv": "^5.5.0",
     "eslint": "^7.5.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-app": "^6.0.0",
