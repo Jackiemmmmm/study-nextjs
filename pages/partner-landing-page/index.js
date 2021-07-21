@@ -14,7 +14,7 @@ function PartnerLandingPage({ isMobile }) {
   // const classes = useStyles();
 
   return (
-    <div style={{ minHeight: 3000 }}>
+    <div>
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>

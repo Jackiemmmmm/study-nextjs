@@ -10,9 +10,7 @@ const useStyles = makeStyles(() => ({
   root: {
     padding: '80px 0 64px',
     backgroundColor: '#38b2a6',
-    backgroundImage: `url(
-    ${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/pic-pattern.png
-  )`,
+    backgroundImage: `url(${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/pic-pattern.png)`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     display: 'flex',

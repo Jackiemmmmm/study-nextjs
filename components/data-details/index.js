@@ -47,7 +47,10 @@ const useStyles = makeStyles(() => ({
   dataDetailsRight: {
     width: '49.1%',
     position: 'relative',
-    '& $img1, & $img2, & $img3, & $img4': { position: 'absolute', '& img': { objectFit: 'cover' } },
+    '& $img1, & $img2, & $img3, & $img4': {
+      position: 'absolute',
+      '& img': { objectFit: 'cover' },
+    },
   },
   imgRoot: { width: '100%', height: '100%' },
   img1: { width: 325, height: 240, right: 290, top: 163 },
@@ -73,7 +76,14 @@ const useStyles = makeStyles(() => ({
       width: '100%',
       '& $img2': { display: 'none' },
     },
-    img1: { width: 275, height: 240, right: 'auto', left: 0, top: 0, zIndex: 2 },
+    img1: {
+      width: 275,
+      height: 240,
+      right: 'auto',
+      left: 0,
+      top: 0,
+      zIndex: 2,
+    },
     img3: { width: 220, height: 197, right: 72, top: 216, zIndex: 3 },
     img4: { width: 155, height: 197, right: 0, top: 155, zIndex: 1 },
   },

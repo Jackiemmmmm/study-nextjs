@@ -65,7 +65,13 @@ const useStyles = makeStyles(() => ({
   educationAgentsImgs: {
     '& > *': {
       '& img': { objectFit: 'cover' },
-      '&:first-child': { width: 303, height: 187, top: -64, right: 0, position: 'absolute' },
+      '&:first-child': {
+        width: 303,
+        height: 187,
+        top: -64,
+        right: 0,
+        position: 'absolute',
+      },
       '&:last-child': {
         width: 128,
         height: 128,
@@ -143,7 +149,7 @@ function MobileMain() {
           number={'03'}
           description={
             <>
-              <Typography component="p" style={{ marginBottom: 24 }}>
+              <Typography component="p" style={{ marginBottom: 28 }}>
                 Have a regular flow of students who need accommodation and want to have a
                 partnership with a global leader of student accommodation? Get in touch to discuss
                 conditions that will work for both of us.

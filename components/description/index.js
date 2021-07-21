@@ -9,8 +9,8 @@ import Line from '~components/line';
 import Typography from '~components/typography';
 import useScroll from '~hooks/use-scroll';
 
-const rootTransition = 0.5;
-const mainTransition = 0.3;
+const ROOT_TRANSITION = 0.5;
+const MAIN_TRANSITION = 0.3;
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -25,17 +25,17 @@ const getPlayScaleEnd = (idx) => {
     case 2:
       return 0.6;
     default:
-      return;
+      return 1;
   }
 };
 
 const useStyles = makeStyles(() => ({
   root: {
-    padding: '48px 156px 0',
+    padding: '48px 10.8% 0',
     position: 'relative',
     '& h4': {
       opacity: 0,
-      transition: `${rootTransition}s`,
+      transition: `${ROOT_TRANSITION}s`,
       transform: 'translateY(50px)',
       margin: '0 0 32px',
     },
@@ -44,7 +44,7 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     flexWrap: 'wrap',
     opacity: 0,
-    transition: `${rootTransition}s`,
+    transition: `${ROOT_TRANSITION}s`,
     justifyContent: 'space-between',
   },
   mainItem: {
@@ -69,6 +69,7 @@ const useStyles = makeStyles(() => ({
       color: '#ffffff',
       lineHeight: '30px',
       textAlign: 'center',
+      fontFamily: 'Avenir Next',
       fontWeight: 'bold',
       backgroundColor: '#fcce01',
       position: 'absolute',
@@ -91,6 +92,7 @@ const useStyles = makeStyles(() => ({
       lineHeight: '28px',
       color: '#4c4c4c',
       fontWeight: 600,
+      fontFamily: 'Avenir Next',
     },
   },
   isOdd: {},
@@ -104,7 +106,7 @@ const useStyles = makeStyles(() => ({
     top: 48 + 32 + 4,
     backgroundColor: '#f8f8f6',
     zIndex: -1,
-    transition: `${mainTransition}s`,
+    transition: `${MAIN_TRANSITION}s`,
     opacity: 0,
     transform: 'translateY(100px)',
   },

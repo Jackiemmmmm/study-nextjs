@@ -6,8 +6,8 @@ import React, { useState } from 'react';
 import DynamicImage from '~components/image';
 import PartnerButton from '~components/partner-button';
 
-const bannerTransition = 0.5;
-const bannerMainTransition = 0.3;
+const BANNER_TRANSITION = 0.8;
+const BANNER_MAIN_TRANSITION = 0.5;
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
     minHeight: '80vh',
     position: 'relative',
     opacity: 0,
-    transition: `${bannerTransition}s`,
+    transition: `${BANNER_TRANSITION}s`,
     marginBottom: 71,
   },
   bannerBg: { width: '100%' },
@@ -27,7 +27,7 @@ const useStyles = makeStyles(() => ({
     maxWidth: '89.2%', // 1284px / 1440px
     opacity: 0,
     transform: 'scale(1.3)',
-    transition: `${bannerMainTransition}s ${bannerTransition}s ease`,
+    transition: `${BANNER_MAIN_TRANSITION}s 0.3s ease`,
   },
   bannerMainText: {
     position: 'absolute',
@@ -36,7 +36,7 @@ const useStyles = makeStyles(() => ({
     left: '10.8%', // 156px / 1440
     opacity: 0,
     transform: 'translateY(50px)',
-    transition: `${bannerMainTransition}s ${bannerTransition + 0.1}s ease`,
+    transition: `${BANNER_MAIN_TRANSITION}s ${BANNER_TRANSITION + 0.1}s ease`,
     '& h4': {
       fontSize: 20,
       color: '#fcce01',
@@ -44,6 +44,7 @@ const useStyles = makeStyles(() => ({
       fontWeight: 'bold',
       letterSpacing: '8px',
       margin: 0,
+      fontFamily: 'Avenir Next',
     },
     '& h2': {
       lineHeight: 1.29,
@@ -51,6 +52,7 @@ const useStyles = makeStyles(() => ({
       textShadow: '0 0 16px rgba(0, 0, 0, 0.2)',
       fontSize: 56,
       fontWeight: 600,
+      fontFamily: 'Avenir Next',
       color: '#ffffff',
     },
   },
@@ -67,7 +69,7 @@ const useStyles = makeStyles(() => ({
     '& $bannerMainText': { opacity: 1, transform: 'translateY(0px)' },
   },
   '@media (max-width: 768px)': {
-    banner: { marginBottom: 420 },
+    banner: { marginBottom: 420, minHeight: '30vh' },
     bannerBg: { height: 256, '& img': { objectFit: 'cover' } },
     bannerMain: {
       height: 240,

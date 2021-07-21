@@ -25,7 +25,13 @@ const useStyles = makeStyles(() => ({
     },
     '& #education-agents': {
       marginBottom: 154,
-      '& $educationAgentsImg2': { width: 169, height: 345, position: 'absolute', top: 0, left: 0 },
+      '& $educationAgentsImg2': {
+        width: 169,
+        height: 345,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+      },
       '& $educationAgentsImg3': {
         width: 312,
         height: 312,

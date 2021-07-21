@@ -12,9 +12,13 @@ const useStyles = makeStyles(() => ({
     color: '#4c4c4c',
     lineHeight: '32px',
     fontSize: 20,
+    fontFamily: 'Avenir Next',
+    fontWeight: 600,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    textDecoration: 'none',
+    cursor: 'pointer',
   },
   '@media (max-width: 768px)': {
     root: { maxWidth: 215, lineHeight: '24px', fontSize: 16 },
