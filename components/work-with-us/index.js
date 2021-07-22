@@ -9,7 +9,7 @@ import MobileMain from './mobile-main';
 
 const useStyles = makeStyles(() => ({
   root: {
-    margin: '154.5px 10.83% 0', // 156 / 1440
+    margin: '154.5px 0 0', // 156 / 1440
     paddingTop: 103.5,
     borderTop: '1px solid #e7e7e7',
     '& p': { marginTop: 24, marginBottom: 72 },
@@ -40,6 +40,15 @@ const useStyles = makeStyles(() => ({
       '& a': { color: '#38b2a6', lineHeight: '28px' },
     },
   },
+
+  '@media (min-width: 769px)': {
+    root: {
+      '& > *': {
+        margin: '0 auto',
+        maxWidth: 1128,
+      },
+    },
+  },
   '@media (max-width: 768px)': {
     root: {
       margin: '254px 8.53% 0',
@@ -68,7 +77,9 @@ function WorkWithUs({ isMobile }) {
   return (
     <>
       <div className={classes.root}>
-        <Line />
+        <div>
+          <Line />
+        </div>
         <Typography variant="h4" component="h4">
           Ways to work with us
         </Typography>

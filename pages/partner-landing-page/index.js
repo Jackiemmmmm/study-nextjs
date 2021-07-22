@@ -14,12 +14,18 @@ function PartnerLandingPage({ isMobile }) {
   // const classes = useStyles();
 
   return (
-    <div>
+    <div
+      style={{
+        minWidth: isMobile ? '100%' : 1200,
+        maxWidth: isMobile ? '100%' : 1440,
+        margin: '0 auto',
+      }}
+    >
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
-      <Banner />
-      <Description />
+      <Banner isMobile={isMobile} />
+      <Description isMobile={isMobile} />
       <DataDetails />
       <WorkWithUs isMobile={isMobile} />
       <ContactUs />

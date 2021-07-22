@@ -1,7 +1,7 @@
-// import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import classNames from 'classnames';
 import getConfig from 'next/config';
+import PropTypes from 'prop-types';
 import ScrollAnim from 'rc-scroll-anim';
 import React from 'react';
 import DynamicImage from '~components/image';
@@ -31,7 +31,7 @@ const getPlayScaleEnd = (idx) => {
 
 const useStyles = makeStyles(() => ({
   root: {
-    padding: '48px 10.8% 0',
+    padding: '48px 0 0',
     position: 'relative',
     '& h4': {
       opacity: 0,
@@ -115,6 +115,16 @@ const useStyles = makeStyles(() => ({
     '& $mainDescription': { opacity: 1 },
     '& $greyBg': { opacity: 1, transform: 'translateY(0)' },
   },
+  '@media (min-width: 769px)': {
+    root: {
+      '& > *': {
+        '&:not(:last-child)': {
+          margin: '0 auto',
+          maxWidth: 1128,
+        },
+      },
+    },
+  },
   '@media (max-width: 768px)': {
     root: { padding: '56px 0 0', '& h4': { marginLeft: 38 } },
     ml38: { marginLeft: 38 },
@@ -133,14 +143,14 @@ const useStyles = makeStyles(() => ({
       '& $img': { width: 336, height: 208 },
       '&$isOdd, &$isLast': { marginTop: 0 },
       '&:not($isOdd)': {
-        left: 'calc(279px - 100%)', // 336 - 39
+        left: 'calc(279px - 95%)', // 336 - 39
       },
     },
     mainItemText: { left: 'auto', right: 0 },
   },
 }));
 
-function Description() {
+function Description({ isMobile }) {
   const { ref, isShow } = useScroll(true);
   const classes = useStyles();
   const list = [
@@ -148,27 +158,29 @@ function Description() {
       title: 'Wellbeing is the top of our priorities',
       content:
         'We work with landlords who share the same values as us, which means students are taken care of.',
-      src: 'shutterstock_6577611882.jpg',
+      src: `shutterstock_6577611882${isMobile ? '_m' : ''}.jpg`,
       placeholder: 'shutterstock_6577611882_xs.jpg',
     },
     {
       title: '24/7 Support',
       content:
         'Our help is aways available via local phone numbers, WhatsApp and email. Our multi-lingual team provides expert advice and free service around the clock.',
-      src: 'shutterstock_1567504015.jpg',
+      src: `shutterstock_1567504015${isMobile ? '_m' : ''}.jpg`,
       placeholder: 'shutterstock_1567504015_xs.jpg',
     },
     {
       title: 'Price match guarantee',
       content:
         'Price match guarantee for students, so they always get the best price. Plus regular offers - free linen packs etc - and the free service from our expert bookings team.',
-      src: 'shutterstock_1465282577.jpg',
+      src: `shutterstock_1465282577${isMobile ? '_m' : ''}.jpg`,
       placeholder: 'shutterstock_1465282577_xs.jpg',
     },
   ];
   return (
     <div className={classNames(classes.root, { [classes.loaded]: isShow })} ref={ref}>
-      <Line className={classes.ml38} />
+      <div>
+        <Line className={classes.ml38} />
+      </div>
       <Typography component="h4" variant="h4">
         Why work with us?
       </Typography>
@@ -207,6 +219,6 @@ function Description() {
   );
 }
 
-Description.propTypes = {};
+Description.propTypes = { isMobile: PropTypes.bool.isRequired };
 
 export default Description;

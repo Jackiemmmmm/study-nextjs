@@ -1,4 +1,5 @@
 export { default as BasicBed } from './BasicBed';
+export { default as IconArrow } from './IconArrow';
 export { default as IconBeds } from './IconBeds';
 export { default as IconCountries } from './IconCountries';
 export { default as IconLanguages } from './IconLanguages';

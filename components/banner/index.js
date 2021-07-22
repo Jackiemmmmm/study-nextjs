@@ -1,7 +1,7 @@
-// import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import classNames from 'classnames';
 import getConfig from 'next/config';
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import DynamicImage from '~components/image';
 import PartnerButton from '~components/partner-button';
@@ -14,26 +14,34 @@ const { publicRuntimeConfig } = getConfig();
 const useStyles = makeStyles(() => ({
   banner: {
     width: '100%',
-    minHeight: '80vh',
+    // minHeight: '80vh',
     position: 'relative',
     opacity: 0,
     transition: `${BANNER_TRANSITION}s`,
     marginBottom: 71,
   },
-  bannerBg: { width: '100%' },
-  bannerMain: {
+  bannerBg: {
+    width: '100%',
+    minWidth: 1200,
     position: 'absolute !important',
-    top: '13.5%', // 96px / 709px
-    maxWidth: '89.2%', // 1284px / 1440px
+    top: 0,
+    left: 0,
+    '& img': { maxHeight: 709 },
+  },
+  bannerMain: {
+    // top: 96, // 96px / 709px = '13.5%'
+    width: '89.2%',
+    maxWidth: 1284, // 1284px / 1440px = '89.2%'
+    marginTop: 96,
     opacity: 0,
     transform: 'scale(1.3)',
     transition: `${BANNER_MAIN_TRANSITION}s 0.3s ease`,
   },
   bannerMainText: {
     position: 'absolute',
-    top: '27%', // 192px / 709px
-    width: '52.5%', // 756px / 1440px
-    left: '10.8%', // 156px / 1440
+    top: 96, // 192px / 709px = '27%'
+    width: 756, // 756px / 1440px = '52.5%'
+    left: 156, // 156px / 1440 = '10.8%'
     opacity: 0,
     transform: 'translateY(50px)',
     transition: `${BANNER_MAIN_TRANSITION}s ${BANNER_TRANSITION + 0.1}s ease`,
@@ -69,19 +77,18 @@ const useStyles = makeStyles(() => ({
     '& $bannerMainText': { opacity: 1, transform: 'translateY(0px)' },
   },
   '@media (max-width: 768px)': {
-    banner: { marginBottom: 420, minHeight: '30vh' },
-    bannerBg: { height: 256, '& img': { objectFit: 'cover' } },
+    banner: {
+      marginBottom: 356, // minHeight: '30vh'
+    },
+    bannerBg: { height: 256, width: '100%', minWidth: 'auto', '& img': { objectFit: 'cover' } },
     bannerMain: {
+      marginTop: 64, // 64px / 256px
       height: 240,
-      top: '25%', // 64px / 256px
-      '& img': {
-        objectPosition: '-124px 0',
-        objectFit: 'cover',
-      },
     },
     bannerMainText: {
       width: '79%', // 303px / 375px
-      top: '137.5%',
+      top: '113.5%',
+      left: 39,
       '& h4': {
         lineHeight: '40px',
         fontSize: 16,
@@ -96,7 +103,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function Banner() {
+function Banner({ isMobile }) {
   const classes = useStyles();
   const [loadBanner, setLoadBanner] = useState({ bg: false, main: false });
   const showBanner = !Object.values(loadBanner).includes(false);
@@ -105,30 +112,34 @@ function Banner() {
     setLoadBanner((prev) => ({ ...prev, [key]: true }));
   };
   return (
-    <div className={classNames(classes.banner, { [classes.loadedBanner]: showBanner })}>
+    <>
       <DynamicImage
         src={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_522883132.jpg`}
         placeholder={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_522883132_xs.jpg`}
         className={classes.bannerBg}
         loadedCallback={loadedHandleImage('bg')}
       />
-      <DynamicImage
-        src={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_583872673.jpg`}
-        placeholder={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_583872673_xs.jpg`}
-        className={classes.bannerMain}
-        loadedCallback={loadedHandleImage('main')}
-      >
-        <div className={classes.whiteBg} />
-      </DynamicImage>
-      <div className={classes.bannerMainText}>
-        <h4>JOIN US TO</h4>
-        <h2>Help students find their perfect home away from home anywhere in the world</h2>
-        <PartnerButton theme="dark" />
+      <div className={classNames(classes.banner, { [classes.loadedBanner]: showBanner })}>
+        <DynamicImage
+          src={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/${
+            isMobile ? 'shutterstock_583872673_m' : 'shutterstock_583872673'
+          }.jpg`}
+          placeholder={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_583872673_xs.jpg`}
+          className={classes.bannerMain}
+          loadedCallback={loadedHandleImage('main')}
+        >
+          <div className={classes.whiteBg} />
+        </DynamicImage>
+        <div className={classes.bannerMainText}>
+          <h4>JOIN US TO</h4>
+          <h2>Help students find their perfect home away from home anywhere in the world</h2>
+          <PartnerButton theme="dark" />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
-Banner.propTypes = {};
+Banner.propTypes = { isMobile: PropTypes.bool.isRequired };
 
 export default Banner;

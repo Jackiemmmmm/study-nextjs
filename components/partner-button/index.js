@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { IconArrow } from '~svg-components';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -19,9 +20,15 @@ const useStyles = makeStyles(() => ({
     alignItems: 'center',
     textDecoration: 'none',
     cursor: 'pointer',
+    '& svg': { marginLeft: 12 },
   },
   '@media (max-width: 768px)': {
-    root: { maxWidth: 215, lineHeight: '24px', fontSize: 16 },
+    root: {
+      maxWidth: 215,
+      lineHeight: '24px',
+      fontSize: 16,
+      '& svg': { width: 11, height: 11, marginLeft: 8 },
+    },
   },
 }));
 
@@ -30,6 +37,7 @@ function PartnerButton({ theme }) {
   return (
     <a className={classes.root} href="http://studentcom.mikecrm.com/e2Y0XwT">
       Become a partner
+      <IconArrow />
     </a>
   );
 }

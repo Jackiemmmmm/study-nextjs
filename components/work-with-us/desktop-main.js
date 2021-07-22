@@ -1,6 +1,7 @@
 // import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import getConfig from 'next/config';
+import ScrollAnim from 'rc-scroll-anim';
 import React from 'react';
 import DynamicImage from '~components/image';
 import Typography from '~components/typography';
@@ -8,6 +9,8 @@ import { PicUniversity } from '~svg-components';
 import MainDescription from './main-description';
 
 const { publicRuntimeConfig } = getConfig();
+
+const ScrollParallax = ScrollAnim.Parallax;
 
 const useStyles = makeStyles(() => ({
   main: {
@@ -41,8 +44,8 @@ const useStyles = makeStyles(() => ({
       },
     },
   },
-  universitiesImg: { width: 750, height: 640 },
-  groupBookingsImg: { width: 690, height: 440 },
+  universitiesImg: { width: 750, height: 640, overflow: 'hidden' },
+  groupBookingsImg: { width: 690, height: 440, overflow: 'hidden' },
   onlyImgContent: { display: 'flex', flexDirection: 'row' },
   onlyImgContentLeft: {
     flex: 1,
@@ -96,7 +99,7 @@ const useStyles = makeStyles(() => ({
     marginTop: -19.6,
   },
 
-  educationAgentsImg: { width: 560, height: 560 },
+  educationAgentsImg: { width: 560, height: 560, overflow: 'hidden' },
   educationAgentsImg2: {},
   educationAgentsImg3: {},
 }));
@@ -120,11 +123,18 @@ function DesktopMain() {
             { marginLeft: '10.83%', marginTop: -28 } // marginLeft: 156 / 1440
           }
         />
-        <DynamicImage
-          className={classes.universitiesImg}
-          src={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_756559234.jpg`}
-          placeholder={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_756559234_xs.jpg`}
-        />
+
+        <div className={classes.universitiesImg}>
+          <ScrollParallax
+            animation={{ translateY: -156, playScale: [0.4, 1.2] }}
+            style={{ transform: 'translateY(0)' }}
+          >
+            <DynamicImage
+              src={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_756559234.jpg`}
+              placeholder={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_756559234_xs.jpg`}
+            />
+          </ScrollParallax>
+        </div>
       </div>
       <div className={classes.onlyImgContent}>
         <div className={classes.onlyImgContentLeft}>
@@ -134,11 +144,17 @@ function DesktopMain() {
         <div className={classes.emptyImg2} />
       </div>
       <div id="group-bookings" style={{ marginBottom: -39 }}>
-        <DynamicImage
-          className={classes.groupBookingsImg}
-          src={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_682509613.jpg`}
-          placeholder={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_682509613_xs.jpg`}
-        />
+        <div className={classes.groupBookingsImg}>
+          <ScrollParallax
+            animation={{ translateY: -109, playScale: [0.4, 1.2] }}
+            style={{ transform: 'translateY(0)' }}
+          >
+            <DynamicImage
+              src={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_682509613.jpg`}
+              placeholder={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_682509613_xs.jpg`}
+            />
+          </ScrollParallax>
+        </div>
         <MainDescription
           title={'Group Bookings'}
           number={'02'}
@@ -180,11 +196,18 @@ function DesktopMain() {
         />
         <div className={classes.educationAgentsRight}>
           <div className={classes.onlyEmpty3} />
-          <DynamicImage
-            className={classes.educationAgentsImg}
-            src={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_791764504.jpg`}
-            placeholder={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_791764504_xs.jpg`}
-          />
+
+          <div className={classes.educationAgentsImg}>
+            <ScrollParallax
+              animation={{ translateY: -162, playScale: [0.4, 1.2] }}
+              style={{ transform: 'translateY(0)' }}
+            >
+              <DynamicImage
+                src={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_791764504.jpg`}
+                placeholder={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_791764504_xs.jpg`}
+              />
+            </ScrollParallax>
+          </div>
         </div>
         <DynamicImage
           className={classes.educationAgentsImg2}

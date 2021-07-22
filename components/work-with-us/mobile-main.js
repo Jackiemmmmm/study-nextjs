@@ -91,7 +91,7 @@ function MobileMain() {
       <div id="universities">
         <div className={classes.universitiesImgs}>
           <DynamicImage
-            src={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/Panmure Court-Edinburgh Showroom Studio 2.jpg`}
+            src={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/Panmure Court-Edinburgh Showroom Studio 2_m.jpg`}
             placeholder={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/Panmure Court-Edinburgh Showroom Studio 2-xs.jpg`}
           />
           <DynamicImage
@@ -136,7 +136,7 @@ function MobileMain() {
       <div id="education-agents">
         <div className={classes.educationAgentsImgs}>
           <DynamicImage
-            src={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_791764504.jpg`}
+            src={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_791764504_m.jpg`}
             placeholder={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/shutterstock_791764504_xs.jpg`}
           />
           <DynamicImage
@@ -165,8 +165,8 @@ function MobileMain() {
         />
         <DynamicImage
           className={classes.educationAgentsLastImg}
-          src={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/arnel-hasanovic-MNd-Rka1o0Q-unsplash.jpg`}
-          placeholder={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/arnel-hasanovic-MNd-Rka1o0Q-unsplash-xs.jpg`}
+          src={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/stock-photo-male-traveler-from-back-in-the-mountains-231458956_m.jpg`}
+          placeholder={`${publicRuntimeConfig.PUBLIC_FILE_PATH_PREFIX}/images/stock-photo-male-traveler-from-back-in-the-mountains-231458956_m.jpg`}
         />
       </div>
     </div>

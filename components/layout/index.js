@@ -5,7 +5,7 @@ import Footer from '~components/footer';
 import Header from '~components/header';
 
 const useStyles = makeStyles(() => ({
-  main: { flex: 1 },
+  main: { flex: 1, position: 'relative' },
 }));
 
 function Layout({ children }) {
