@@ -20,6 +20,8 @@ const useStyles = makeStyles(() => ({
     '& div': {
       width: 352,
       height: 352,
+      paddingTop: 26,
+      paddingBottom: 32,
       borderRadius: 2,
       boxShadow: '0 2px 8px 0 rgba(76, 76, 76, 0.16)',
       backgroundColor: '#ffffff',
@@ -62,6 +64,13 @@ const useStyles = makeStyles(() => ({
         width: '100%',
         height: 311,
         marginBottom: 32,
+        paddingBottom: 20,
+        paddingTop: 24,
+        '& h5': { marginTop: 8 },
+        '& svg': {
+          width: 256,
+          height: 187,
+        },
       },
     },
   },

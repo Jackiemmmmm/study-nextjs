@@ -41,7 +41,11 @@ const useStyles = makeStyles(() => ({
     },
   },
   '@media (max-width: 768px)': {
-    root: { '& > *': { maxWidth: 323 } },
+    root: {
+      '& > *': { maxWidth: 323 },
+      paddingTop: 48,
+      '& h4': { lineHeight: '32px', maxWidth: 260 },
+    },
     description: { padding: '16px 0 40px', maxWidth: 293 },
     contactUs: {
       flexDirection: 'column',

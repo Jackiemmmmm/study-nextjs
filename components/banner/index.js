@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
     position: 'relative',
     opacity: 0,
     transition: `${BANNER_TRANSITION}s`,
-    marginBottom: 71,
+    marginBottom: 16,
   },
   bannerBg: {
     width: '100%',
@@ -50,6 +50,7 @@ const useStyles = makeStyles(() => ({
       color: '#fcce01',
       textShadow: '0 0 16px rgba(0, 0, 0, 0.2)',
       fontWeight: 'bold',
+      lineHeight: '32px',
       letterSpacing: '8px',
       margin: 0,
       fontFamily: 'Avenir Next',
@@ -66,9 +67,9 @@ const useStyles = makeStyles(() => ({
   },
   whiteBg: {
     width: '62.3%', // 800
-    height: '15.6%', // 105
+    height: '8.8%', // 59
     position: 'absolute',
-    bottom: '-1.79%',
+    bottom: '0%',
     backgroundColor: '#ffffff',
   },
   loadedBanner: {
@@ -97,6 +98,8 @@ const useStyles = makeStyles(() => ({
         margin: '4.06% 0 8.12%', // 12px 24px
         fontSize: 28,
         color: '#4c4c4c',
+        textShadow: 'none',
+        lineHeight: 1.43,
       },
     },
     whiteBg: { display: 'none' },

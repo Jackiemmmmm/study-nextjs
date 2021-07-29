@@ -25,20 +25,21 @@ const useStyles = makeStyles(() => ({
     backgroundColor: '#fff8da',
     marginTop: 152,
     display: 'flex',
+    justifyContent: 'space-between',
   },
   dataDetailsLeft: {
     width: '50.9%', // 637 / 1252
     paddingLeft: '13.5%', // 195 / 1440
-    paddingRight: 97,
-    paddingTop: 64,
-    paddingBottom: 64,
+    // paddingRight: 97,
+    paddingTop: 44,
+    paddingBottom: 44,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
     flexWrap: 'wrap',
     '& svg': { width: 72, height: 72, color: '#fcce01' },
-    '& div': { width: '50%', textAlign: 'center' },
+    '& div': { width: '50%', maxWidth: 158, maxHeight: 152, textAlign: 'center' },
     '& h4': {
       margin: '8px 0 0',
     },
@@ -57,6 +58,11 @@ const useStyles = makeStyles(() => ({
   img2: { width: 323, height: 393, right: -32, top: -40 },
   img3: { width: 241, height: 197, right: 291, top: 518 },
   img4: { width: 220, height: 197, right: 71, top: 353 },
+  '@media (min-width: 768px)': {
+    dataDetails: {
+      minWidth: 1168,
+    },
+  },
   '@media (max-width: 768px)': {
     dataDetails: {
       marginTop: 64,

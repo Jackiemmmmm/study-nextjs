@@ -50,15 +50,23 @@ const useStyles = makeStyles(() => ({
   mainItem: {
     width: 352,
     position: 'relative',
-    paddingBottom: 64,
-    '& $img': { width: 352, height: 520, '& img': { objectFit: 'cover' } },
+    paddingTop: 312,
+    '& $img': {
+      width: 352,
+      height: 520,
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      '& img': { objectFit: 'cover' },
+    },
     '&$isOdd': { marginTop: 120 },
     '&$isLast': { marginTop: 64 },
   },
   mainItemText: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
+    position: 'relative',
+
+    // top: 152,
+    // left: 0,
     backgroundColor: '#ffffff',
     width: 316,
     padding: 40,
@@ -126,7 +134,7 @@ const useStyles = makeStyles(() => ({
     },
   },
   '@media (max-width: 768px)': {
-    root: { padding: '56px 0 0', '& h4': { marginLeft: 38 } },
+    root: { padding: '56px 0 0', '& h4': { marginLeft: 38, marginBottom: 28 } },
     ml38: { marginLeft: 38 },
     greyBg: {
       width: '89.3%', // 335 / 375
@@ -138,7 +146,9 @@ const useStyles = makeStyles(() => ({
     mainItem: {
       width: 336,
       marginBottom: 40,
-      paddingBottom: 160,
+      paddingTop: 152,
+      display: 'flex',
+      justifyContent: 'flex-end',
       position: 'relative',
       '& $img': { width: 336, height: 208 },
       '&$isOdd, &$isLast': { marginTop: 0 },
@@ -146,7 +156,7 @@ const useStyles = makeStyles(() => ({
         left: 'calc(279px - 95%)', // 336 - 39
       },
     },
-    mainItemText: { left: 'auto', right: 0 },
+    // mainItemText: { left: 'auto', right: 0 },
   },
 }));
 
