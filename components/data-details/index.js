@@ -69,7 +69,6 @@ const useStyles = makeStyles(() => ({
       width: '100%',
       height: 961,
       flexDirection: 'column',
-      marginBottom: 173,
     },
     dataDetailsLeft: {
       width: '100%',
@@ -80,6 +79,8 @@ const useStyles = makeStyles(() => ({
     },
     dataDetailsRight: {
       width: '100%',
+      flex: 1,
+      marginTop: 27,
       '& $img2': { display: 'none' },
     },
     img1: {

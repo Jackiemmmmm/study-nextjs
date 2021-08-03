@@ -126,7 +126,7 @@ function DesktopMain() {
 
         <div className={classes.universitiesImg}>
           <ScrollParallax
-            animation={{ translateY: -156, playScale: [0.4, 1.2] }}
+            animation={{ translateY: -156, playScale: [0.4, 1.2], ease: 'linear' }}
             style={{ transform: 'translateY(0)' }}
           >
             <DynamicImage
@@ -146,7 +146,7 @@ function DesktopMain() {
       <div id="group-bookings" style={{ marginBottom: -39 }}>
         <div className={classes.groupBookingsImg}>
           <ScrollParallax
-            animation={{ translateY: -109, playScale: [0.4, 1.2] }}
+            animation={{ translateY: -109, playScale: [0.2, 1.2], ease: 'linear' }}
             style={{ transform: 'translateY(0)' }}
           >
             <DynamicImage
@@ -199,7 +199,7 @@ function DesktopMain() {
 
           <div className={classes.educationAgentsImg}>
             <ScrollParallax
-              animation={{ translateY: -162, playScale: [0.4, 1.2] }}
+              animation={{ translateY: -162, playScale: [0.2, 1.2], ease: 'linear' }}
               style={{ transform: 'translateY(0)' }}
             >
               <DynamicImage
